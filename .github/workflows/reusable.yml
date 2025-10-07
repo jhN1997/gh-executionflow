@@ -5,7 +5,7 @@ on:
       artifact-name:
         description: "The name of the artifact to download"
         required: false
-        default: dist
+        default: dist-files
         type: string
 jobs:
   deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: Get Code
         uses: actions/download-artifact@v4
         with:
-          name: dist-files ${{ inputs.artifact-name }}
+          name: ${{ inputs.artifact-name }}
       - name: List files
         run: ls -la
       - name: Output information
